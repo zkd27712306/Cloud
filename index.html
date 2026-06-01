@@ -971,10 +971,10 @@ function escapeHtml(unsafe) {
     .replace(/'/g, "&#039;");
 }
 
+// 高速下载代理 - 直接拼接，不进行二次编码
 function generateProxyUrl(url) {
-  // 去掉协议头，保留原始编码（不额外编码）
-  const cleanUrl = url.replace(/^https?:\/\//, '');
-  return `https://1.zkd.cc.cd/${cleanUrl}`;
+  // 直接返回代理地址 + 原始URL（保持原有编码，不额外编码）
+  return `https://1.zkd.cc.cd/${url}`;
 }
 
 function formatFileSize(bytes) {
