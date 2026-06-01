@@ -971,7 +971,13 @@ function escapeHtml(unsafe) {
     .replace(/'/g, "&#039;");
 }
 
-function generateProxyUrl(url) {
+// 高速代理生成函数（支持双地址选择）
+function generateProxyUrl(url, type = 'fast1') {
+  if (type === 'fast1') {
+    return `https://zkd27712306.dpdns.org/${encodeURI(url)}`;
+  } else if (type === 'fast2') {
+    return `https://1.zkd.cc.cd/${encodeURI(url)}`;
+  }
   return `https://ghproxy.net/${encodeURI(url)}`;
 }
 
