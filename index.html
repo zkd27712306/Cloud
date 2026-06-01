@@ -972,7 +972,9 @@ function escapeHtml(unsafe) {
 }
 
 function generateProxyUrl(url) {
-  return `https://1.zkd.cc.cd/${encodeURI(url)}`;
+  // 去掉协议头，保留原始编码（不额外编码）
+  const cleanUrl = url.replace(/^https?:\/\//, '');
+  return `https://1.zkd.cc.cd/${cleanUrl}`;
 }
 
 function formatFileSize(bytes) {
